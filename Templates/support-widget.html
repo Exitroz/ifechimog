@@ -1,0 +1,54 @@
+
+<!-- Support Widget Button -->
+<style>
+  #support-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--purple);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+  }
+  #support-chat-window {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 9998;
+  }
+  #support-chat-window textarea {
+    resize: none;
+  }
+</style>
+
+<button id="support-chat-btn" title="Live Chat">💬</button>
+<div id="support-chat-window">
+  <div>
+    <p><strong>Support</strong></p>
+    <p style="font-size: 0.9rem;">Hi there! Need help with something?</p>
+  </div>
+  <textarea class="form-control mb-2" rows="3" placeholder="Type your message..."></textarea>
+  <button class="btn btn-primary w-100">Send</button>
+</div>
+
+<script>
+  const btn = document.getElementById('support-chat-btn');
+  const windowBox = document.getElementById('support-chat-window');
+  btn.addEventListener('click', () => {
+    windowBox.style.display = windowBox.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>

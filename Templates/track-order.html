@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order | Ifechimog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../Styles/style.css" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+    }
+    .page-wrapper {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .main-content {
+      flex: 1;
+    }
+    .timeline {
+      border-left: 3px solid var(--purple);
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+    .timeline-step {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .timeline-step::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      background-color: var(--purple);
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Ifechimog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <div class="main-content section">
+      <div class="container">
+        <h2 class="text-center mb-4">Track Your Order</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card-shadow p-4">
+              <form id="track-form">
+                <div class="mb-3">
+                  <label class="form-label">Enter Tracking ID</label>
+                  <input type="text" class="form-control" id="tracking-id" placeholder="e.g. TRZ123456" required>
+                </div>
+                <button class="btn btn-primary" type="submit">Track Order</button>
+              </form>
+              <div class="mt-4" id="tracking-result" style="display:none;">
+                <h5>Status:</h5>
+                <p id="tracking-status">Loading...</p>
+                <div class="timeline mt-4">
+                  <div class="timeline-step"><strong>Order Placed</strong> – Your order has been successfully placed.</div>
+                  <div class="timeline-step"><strong>Processing</strong> – We are preparing your order.</div>
+                  <div class="timeline-step"><strong>Dispatched</strong> – Your order has left our facility.</div>
+                  <div class="timeline-step"><strong>Out for Delivery</strong> – The rider is on the way to you.</div>
+                  <div class="timeline-step"><strong>Delivered</strong> – Order delivered successfully. ✅</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto">
+      <div class="container">
+        <p>&copy; 2025 Ifechimog. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Js/app.js"></script>
+</body>
+</html>
