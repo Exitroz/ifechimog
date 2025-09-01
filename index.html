@@ -12,8 +12,9 @@
       --white: #ffffff;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: var(--white);
+      color: #333;
     }
     .navbar {
       background-color: var(--purple);
@@ -21,58 +22,125 @@
     .navbar-brand, .nav-link {
       color: var(--white) !important;
     }
+    .carousel-item img {
+      height: 400px;
+      object-fit: cover;
+    }
+     /* .carousel-caption {
+        background-color: rgba(255, 255, 255, 0.0);
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        color: white;
+        animation: fadeInDown 1s ease-in-out;
+      } */
+     .carousel-caption {
+        background-color: rgba(255, 255, 255, 0.0);
+        padding: 2rem;
+        border-radius: 12px;
+        color: var(--white);
+        animation: fadeInDown 1s ease-in-out;
+        text-align: left;
+        max-width: 600px;
+        left: 10%;
+        bottom: 20%;
+        position: absolute;
+      }
+
+      .carousel-caption h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        color: var(--white);
+        margin-bottom: 1rem;
+      }
+
+      .carousel-caption p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+     
+      
+    .btn-primary {
+      background-color: var(--yellow);
+      color: var(--purple);
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: var(--purple);
+      color: var(--white);
+    }
+    h1, h2, h4 {
+      color: var(--purple);
+    }
     .hero {
       background-color: var(--yellow);
       color: var(--purple);
       padding: 4rem 1rem;
       text-align: center;
-      animation: fadeIn 1.5s ease-in-out;
+      animation: fadeInDown 1s ease-in-out;
     }
-    .carousel-item img {
-      max-height: 400px;
-      object-fit: cover;
-      width: 100%;
-    }
-    .section-title {
-      color: var(--purple);
-      animation: slideUp 1s ease-in-out;
+    .services-section {
+      padding: 4rem 1rem;
     }
     .service-card {
-      border: 1px solid var(--purple);
+      background: #fff;
       border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 1rem;
+      text-align: center;
       transition: transform 0.3s ease;
     }
     .service-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-5px);
+    }
+    .service-card img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border-radius: 8px;
     }
     .footer {
       background-color: var(--purple);
       color: var(--white);
       text-align: center;
       padding: 1rem;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
-    .btn-primary {
-      background-color: var(--purple);
-      border-color: var(--purple);
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+     @media (max-width: 768px) {
+        .carousel-caption {
+          left: 5%;
+          right: 5%;
+          padding: 1rem;
+          bottom: 10%;
+        }
+        .carousel-caption h1 {
+          font-size: 1.5rem;
+        }
+        .carousel-caption p {
+          font-size: 0.9rem;
+        }
+      }
   </style>
 </head>
 <body>
-
-<!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Ifechimog</a>
+      <a class="navbar-brand" href="#">Ifechimog</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -91,93 +159,111 @@
     </div>
   </nav>
 
-<!-- Hero Carousel -->
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="Images/slider_bg01.jpg" class="d-block w-100" alt="Rice Sales">
-    </div>
-    <div class="carousel-item">
-      <img src="Images/history_img01.jpg" class="d-block w-100" alt="Laundry">
-    </div>
-    <div class="carousel-item">
-      <img src="Images/slider_bg01.jpg" class="d-block w-100" alt="Logistics">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-
-<!-- Services Section -->
-<section id="services" class="py-5">
-  <div class="container">
-    <h2 class="section-title text-center mb-4">Our Services</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="service-card">
-          <h4>Rice Sales</h4>
-          <p>Top-quality rice at affordable prices. Order online and get fast delivery.</p>
-          <a href="#" class="btn btn-primary btn-sm">Shop Rice</a>
+  <!-- Carousel -->
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Images/slider_bg01.jpg" class="d-block w-100" alt="Rice">
+        <div class="carousel-caption text-center">
+          <h1>Welcome to Ifechimog</h1>
+          <p>Your trusted partner for quality rice, reliable laundry, and efficient logistics services.</p>
+          <a href="#services" class="btn btn-primary mt-3">Explore Services</a>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="service-card">
-          <h4>Laundry Services</h4>
-          <p>Professional wash, dry clean, and ironing. Book pickups and track your laundry.</p>
-          <a href="#" class="btn btn-primary btn-sm">Book Laundry</a>
+      <div class="carousel-item">
+        <img src="Images/slider_bg01.jpg" class="d-block w-100" alt="Laundry">
+        <div class="carousel-caption text-center">
+          <h1>Welcome to Ifechimog</h1>
+          <p>Your trusted partner for quality rice, reliable laundry, and efficient logistics services.</p>
+          <a href="#services" class="btn btn-primary mt-3">Explore Services</a>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="service-card">
-          <h4>Logistics</h4>
-          <p>From bike deliveries to truck rentals, we move your packages safely and on time.</p>
-          <a href="#" class="btn btn-primary btn-sm">Get a Quote</a>
+      <div class="carousel-item">
+        <img src="Images/history_img01.jpg" class="d-block w-100" alt="Logistics">
+        <div class="carousel-caption text-center">
+          <h1>Welcome to Ifechimog</h1>
+          <p>Your trusted partner for quality rice, reliable laundry, and efficient logistics services.</p>
+          <a href="#services" class="btn btn-primary mt-3">Explore Services</a>
         </div>
       </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
   </div>
-</section>
 
-<!-- About Section -->
-<section id="about" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="section-title text-center mb-4">About Ifechimog</h2>
-    <p class="text-center">We are a fast-growing business providing high-quality products and services in Nigeria. Whether you need staple food, trusted cleaning, or delivery solutions, we’ve got you covered.</p>
-  </div>
-</section>
+  <!-- Services -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-card">
+            <img src="images/clean_image_1.png" alt="Rice Sales">
+            <h4>Rice Sales</h4>
+            <p>Buy top-quality rice at affordable prices. Order online and get fast delivery.</p>
+            <a href="#" class="btn btn-primary btn-sm">Shop Rice</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <img src="images/clean_image_2.png" alt="Laundry">
+            <h4>Laundry Services</h4>
+            <p>Professional wash, dry clean, and ironing. Book pickups and track your laundry.</p>
+            <a href="#" class="btn btn-primary btn-sm">Book Laundry</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <img src="images/clean_image_3.png" alt="Logistics">
+            <h4>Logistics</h4>
+            <p>From bike deliveries to truck rentals, we move your packages safely and on time.</p>
+            <a href="#" class="btn btn-primary btn-sm">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-5">
-  <div class="container">
-    <h2 class="section-title text-center mb-4">Contact Us</h2>
-    <form class="row g-3">
-      <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Your Name" required />
-      </div>
-      <div class="col-md-6">
-        <input type="email" class="form-control" placeholder="Email Address" required />
-      </div>
-      <div class="col-12">
-        <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-      </div>
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </div>
-    </form>
-  </div>
-</section>
+  <!-- About -->
+  <section id="about" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center">About Ifechimog</h2>
+      <p class="text-center">We are a fast-growing business providing high-quality products and services in Nigeria. Whether you need staple food, trusted cleaning services, or delivery solutions — we've got you covered.</p>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2025 Ifechimog. All Rights Reserved.</p>
-  </div>
-</footer>
+  <!-- Contact -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <form class="row g-3">
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Your Name" required />
+        </div>
+        <div class="col-md-6">
+          <input type="email" class="form-control" placeholder="Email Address" required />
+        </div>
+        <div class="col-12">
+          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Ifechimog. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
