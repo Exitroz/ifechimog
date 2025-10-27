@@ -1,0 +1,131 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<!-- Navbar -->
+{% comment %}
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"> Ifechimog </a>
+    <button
+      class="navbar-toggler"
+      data-bs-target="#navbarNav"
+      data-bs-toggle="collapse"
+      type="button"
+    >
+      <span class="navbar-toggler-icon"> </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html"> Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html"> Services </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html"> About </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html"> Contact </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endcomment %}
+<section class="page-hero">
+  <img alt="Services banner" src="{% static 'Images/delivery.jpg' %}" />
+  <div class="caption">
+    <h1>Our Services</h1>
+    <p>
+      Rice Sales, Laundry Care, and Logistics, unified under one reliable brand.
+    </p>
+    <a class="btn btn-primary btn-sm" href="https://wa.me/message/WCJCWHK6URUEM1"> Talk to Us </a>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <div class="container">
+   <h2 class="text-center mb-5">
+    Our Services
+   </h2>
+   <div class="row g-4">
+    <div class="col-md-4">
+     <div class="service-card">
+      <img alt="Rice Sales" src="{% static 'Images/mogrice.jpg' %}"/>
+      <h4>
+       Rice Sales
+      </h4>
+      <p>
+       Retail and wholesale options with fast delivery.
+      </p>
+      <a class="btn btn-primary btn-sm" href="{% url 'rice' %}">
+       Shop Rice
+      </a>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="service-card">
+      <img alt="Laundry" src="{% static 'Images/laundry.png' %}"/>
+      <h4>
+       Laundry Services
+      </h4>
+      <p>
+       Wash, dry clean, ironing, and stain removal
+      </p>
+      <a class="btn btn-primary btn-sm" href="{% url 'laundry_booking' %}">
+       Book Laundry
+      </a>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="service-card">
+      <img alt="Logistics" src="{% static 'Images/9.jpg' %}"/>
+      <h4>
+       Logistics
+      </h4>
+      <p>
+       Bike dispatch, with fast deliveries, and express options.
+      </p>
+      <a class="btn btn-primary btn-sm" href="{% url 'logistics_request' %}">
+       Get a Quote
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+{% comment %} <section class="section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="card-shadow p-3">
+          <img alt="Rice" src="{% static 'Images/mogrice.jpg' %}" />
+          <h4 class="mt-3">Rice Sales</h4>
+          <p>Retail and wholesale options with fast delivery.</p>
+          <a class="btn btn-primary btn-sm" href="{% url 'rice' %}"> View Rice </a>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card-shadow p-3">
+          <img alt="Laundry" src="{% static 'Images/laundry.png' %}" />
+          <h4 class="mt-3">Laundry Services</h4>
+          <p>Wash, dry clean, ironing, and stain removal.</p>
+          <a class="btn btn-primary btn-sm" href="{% url 'laundry_booking' %}">
+            Book Laundry
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card-shadow p-3">
+          <img alt="Logistics" src="{% static 'Images/logistics.jpg' %}" />
+          <h4 class="mt-3">Logistics</h4>
+          <p>Bike dispatch, with fast deliveries, and express options.</p>
+          <a class="btn btn-primary btn-sm" href="{% url 'logistics_request' %}">
+            Get a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+
+{% endblock %}

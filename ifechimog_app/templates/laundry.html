@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Premium Laundry Services - Ifechimog{% endblock %}
+
+{% block content %}
+
+
+<!-- Navbar -->
+{% comment %} <nav class="navbar navbar-expand-lg">
+ <div class="container">
+  <a class="navbar-brand" href="{% url 'home' %}">
+   Ifechimog
+  </a>
+  <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+   <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+   <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Services</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+   </ul>
+  </div>
+ </div>
+</nav> {% endcomment %}
+
+<section class="page-hero">
+ <img alt="Laundry banner" src="{% static 'Images/services.jpg' %}"/>
+ <div class="caption">
+  <h1>Laundry Booking</h1>
+  <p>Schedule pickups and deliveries with ease.</p>
+  <span class="badge-pill">Fast Turnaround</span>
+ </div>
+</section>
+
+<!-- Price Calculator -->
+<section class="section">
+ <div class="container">
+  <h2 class="text-center mb-4">Laundry Price Calculator</h2>
+  <div class="card p-4 shadow">
+   <form id="price-form">
+    <div class="row g-3">
+     <div class="col-md-6">
+      <label class="form-label">Service Type</label>
+      <select class="form-select" id="service-type">
+       <option value="Wash & Fold">Wash & Fold</option>
+       <option value="Dry Clean">Dry Clean</option>
+       <option value="Ironing">Ironing</option>
+      </select>
+     </div>
+     <div class="col-md-6">
+      <label class="form-label">Number of Clothes</label>
+      <input class="form-control" id="quantity" placeholder="e.g. 10" required type="number"/>
+     </div>
+     <div class="col-12 text-end">
+      <button class="btn btn-primary" type="submit">Calculate</button>
+     </div>
+    </div>
+   </form>
+   <div class="mt-3">
+    <h5 id="price-result"></h5>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Laundry Booking Form -->
+<section class="section">
+ <div class="container">
+  <div class="card-shadow p-4 reveal">
+   <h4 class="mb-3">Book Your Laundry</h4>
+   <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary mt-3" type="submit">Submit Booking</button>
+   </form>
+  </div>
+ </div>
+</section>
+
+{% endblock %}

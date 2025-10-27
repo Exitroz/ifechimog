@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5 text-center">
+  <h3>Request Received Successfully!</h3>
+  <p>Your tracking ID is: <strong>{{ order.tracking_id }}</strong></p>
+  <a href="{% url 'track_order' %}?tracking_id={{ order.tracking_id }}" class="btn btn-success mt-3">Track Order</a>
+</div>
+{% endblock %}

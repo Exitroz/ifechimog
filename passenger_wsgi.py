@@ -1,0 +1,1 @@
+from ifechimog.wsgi import application

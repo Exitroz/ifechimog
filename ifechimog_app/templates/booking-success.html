@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+ <nav class="navbar navbar-expand-lg">
+  <div class="container">
+   <a class="navbar-brand" href="{% url 'home' %}">
+    Ifechimog
+   </a>
+  </div>
+ </nav>
+ <section class="section text-center">
+  <div class="container">
+   <h2 class="mb-3 text-success">
+    ✅ Booking Successful
+   </h2>
+   <p>
+    Your laundry service booking has been received. We'll get in touch shortly!
+   </p>
+   <a class="btn btn-primary mt-3" href="/">
+    Book Another
+   </a>
+  </div>
+ </section>
+</body>
+
+{% endblock %}

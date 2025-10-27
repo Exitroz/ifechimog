@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+ <!-- Navbar -->
+ {% comment %} <nav class="navbar navbar-expand-lg">
+  <div class="container">
+   <a class="navbar-brand" href="index.html">
+    Ifechimog
+   </a>
+   <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="index.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="services.html">
+       Services
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="about.html">
+       About
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="contact.html">
+       Contact
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+ </nav> {% endcomment %}
+ <section class="page-hero">
+  <img alt="Contact banner" src="{% static 'Images/services.jpg' %}"/>
+  <div class="caption">
+   <h1>
+    Contact Us
+   </h1>
+   <p>
+    We’d love to hear from you.
+   </p>
+   <a class="btn btn-primary btn-sm" href="mailto:info@ifechimog.com">
+    Email Us
+   </a>
+  </div>
+ </section>
+ <section class="section">
+  <div class="container">
+   <div class="row g-4">
+    <div class="col-lg-6 reveal">
+     <div class="card-shadow p-4">
+      <h4>
+       Send a Message
+      </h4>
+      <form id="contact-form">
+       <div class="row g-3">
+        <div class="col-md-6">
+         <label class="form-label">
+          Your Name
+         </label>
+         <input class="form-control" id="c-name" required=""/>
+        </div>
+        <div class="col-md-6">
+         <label class="form-label">
+          Email
+         </label>
+         <input class="form-control" id="c-email" required="" type="email"/>
+        </div>
+        <div class="col-12">
+         <label class="form-label">
+          Message
+         </label>
+         <textarea class="form-control" id="c-message" required="" rows="4"></textarea>
+        </div>
+        <div class="col-12">
+         <button class="btn btn-primary">
+          Send
+         </button>
+        </div>
+       </div>
+      </form>
+     </div>
+    </div>
+    <div class="col-lg-6 reveal">
+     <div class="card-shadow p-4">
+      <h4>
+       Company Info
+      </h4>
+      <p>
+       <strong>
+        Phone:
+       </strong>
+       +234 814 262 8792
+      </p>
+      <p>
+       <strong>
+        Email:
+       </strong>
+       info@ifechimog.com
+      </p>
+      <p>
+       <strong>
+        Address:
+       </strong>
+       109 NIMO, 1 Dr David Onuora Close, Oduke Road Asaba, Nigeria
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+ <!-- Footer -->
+
+{% endblock %}

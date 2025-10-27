@@ -1,0 +1,106 @@
+{% extends 'base.html' %} 
+{% block title %}Premium Rice Sales - Ifechimog{% endblock %}
+
+{% block content %} {% load static %}
+
+<!-- Navbar -->
+{% comment %}
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"> Ifechimog </a>
+    <button
+      class="navbar-toggler"
+      data-bs-target="#navbarNav"
+      data-bs-toggle="collapse"
+      type="button"
+    >
+      <span class="navbar-toggler-icon"> </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html"> Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html"> Services </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html"> About </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html"> Contact </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endcomment %}
+<section class="page-hero">
+  <img alt="Rice banner" src="{% static 'Images/mogrice.jpg' %}" />
+  <div class="caption">
+    <h1>Rice Sales</h1>
+    <p>Order quality rice with doorstep delivery.</p>
+    <a class="btn btn-primary btn-sm" href="https://wa.me/message/WCJCWHK6URUEM1">
+      Need Bulk? Contact Us
+    </a>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+        {% for product in products %}
+        <div class="col-md-4 reveal">
+            <div class="card-shadow p-3 text-center">
+            <img alt="{{ product.name }}" src="{{ product.image.url }}" class="img-fluid">
+            <h5 class="mt-2">{{ product.name }}</h5>
+            <p class="mb-1">₦{{ product.price }}</p>
+            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary btn-sm">Add to Cart</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% comment %} <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="card-shadow p-3 text-center">
+          <img alt="Rice Bag" src="../Images/clean_image_1.png" />
+          <h5 class="mt-2">Premium Long Grain</h5>
+          <p class="mb-1">25kg bag</p>
+          <button
+            class="btn btn-primary btn-sm add-to-cart"
+            data-name="Premium Long Grain"
+            data-price="35000"
+          >Add to Cart
+          </button>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card-shadow p-3 text-center">
+          <img alt="Rice Bag" src="../Images/clean_image_1.png" />
+          <h5 class="mt-2">Classic Local Rice</h5>
+          <p class="mb-1">10kg bag</p>
+          <button
+            class="btn btn-primary btn-sm add-to-cart"
+            data-name="Classic Local Rice"
+            data-price="14000"
+          >Add to Cart
+          </button>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card-shadow p-3 text-center">
+          <img alt="Rice Bag" src="../Images/clean_image_1.png" />
+          <h5 class="mt-2">Parboiled Rice</h5>
+          <p class="mb-1">50kg bag</p>
+          <button
+            class="btn btn-primary btn-sm add-to-cart"
+            data-name="Parboiled Rice"
+            data-price="65000"
+          >Add to Cart
+          </button>
+        </div>
+      </div>
+    </div> {% endcomment %}
+  </div>
+</section>
+
+{% endblock %}

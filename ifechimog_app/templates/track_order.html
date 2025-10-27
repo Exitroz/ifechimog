@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+  <h2>Track Your Package</h2>
+  <form method="get" class="mb-4">
+    <input type="text" name="tracking_id" class="form-control" placeholder="Enter your tracking ID" required>
+    <button type="submit" class="btn btn-primary mt-2">Track</button>
+  </form>
+
+  {% if order %}
+    <div class="card p-4">
+      <h5>Status: {{ order.status }}</h5>
+      <p><strong>Tracking ID:</strong> {{ order.tracking_id }}</p>
+      <p><strong>From:</strong> {{ order.pickup_address }}</p>
+      <p><strong>To:</strong> {{ order.destination }}</p>
+      <p><strong>Requested by:</strong> {{ order.full_name }}</p>
+      <p><strong>Vehicle:</strong> {{ order.vehicle_type }}</p>
+
+      <hr>
+      <h5>Status History:</h5>
+      <ul class="timeline">
+        {% for update in order.status_updates.all %}
+          <li>
+            <strong>{{ update.status }}</strong> - {{ update.timestamp|date:"D, M j Y H:i" }}<br/>
+            <small>{{ update.note }}</small>
+          </li>
+        {% empty %}
+          <li>No status updates yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% elif request.GET.tracking_id %}
+    <div class="alert alert-danger">No order found with that tracking ID.</div>
+  {% endif %}
+</div>
+{% endblock %}

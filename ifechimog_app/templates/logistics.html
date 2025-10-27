@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block content %}{% load static %}
+
+<!-- Navbar -->
+{% comment %}
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"> Ifechimog </a>
+    <button
+      class="navbar-toggler"
+      data-bs-target="#navbarNav"
+      data-bs-toggle="collapse"
+      type="button"
+    >
+      <span class="navbar-toggler-icon"> </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html"> Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html"> Services </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html"> About </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html"> Contact </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endcomment %}
+<section class="page-hero">
+  <img alt="Logistics banner" src="{% static 'Images/services.jpg' %}" />
+  <div class="caption">
+    <h1>Logistics Services</h1>
+    <p>We move it safely and on time.</p>
+    <span class="badge-pill"> Reliable &amp; Fast </span>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6 reveal">
+        <div class="card-shadow p-4">
+          <h4 class="mb-3">Get a Quote</h4>
+          <form method="post">
+            {% csrf_token %} {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mt-2">
+              Submit Request
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="card-shadow p-4">
+          <h4 class="mb-3">Track a Package</h4>
+          <div class="row g-3">
+            <div class="col-8">
+              <input
+                class="form-control"
+                id="track-id"
+                placeholder="Enter Tracking ID"
+              />
+            </div>
+            <div class="col-4">
+              <button class="btn btn-primary w-100" id="track-btn">
+                Track
+              </button>
+            </div>
+            <div class="col-12">
+              <p class="input-hint" id="track-result">
+                Status will appear here.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

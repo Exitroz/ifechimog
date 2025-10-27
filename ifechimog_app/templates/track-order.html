@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="main-content section">
+ <div class="container">
+  <h2 class="text-center mb-4">
+   Track Your Order
+  </h2>
+  <div class="row justify-content-center">
+   <div class="col-md-8">
+    <div class="card-shadow p-4">
+     <form id="track-form">
+      <div class="mb-3">
+       <label class="form-label">
+        Enter Tracking ID
+       </label>
+       <input class="form-control" id="tracking-id" placeholder="e.g. TRZ123456" required="" type="text"/>
+      </div>
+      <button class="btn btn-primary" type="submit">
+       Track Order
+      </button>
+     </form>
+     <div class="mt-4" id="tracking-result" style="display:none;">
+      <h5>
+       Status:
+      </h5>
+      <p id="tracking-status">
+       Loading...
+      </p>
+      <div class="timeline mt-4">
+       <div class="timeline-step">
+        <strong>
+         Order Placed
+        </strong>
+        – Your order has been successfully placed.
+       </div>
+       <div class="timeline-step">
+        <strong>
+         Processing
+        </strong>
+        – We are preparing your order.
+       </div>
+       <div class="timeline-step">
+        <strong>
+         Dispatched
+        </strong>
+        – Your order has left our facility.
+       </div>
+       <div class="timeline-step">
+        <strong>
+         Out for Delivery
+        </strong>
+        – The rider is on the way to you.
+       </div>
+       <div class="timeline-step">
+        <strong>
+         Delivered
+        </strong>
+        – Order delivered successfully. ✅
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+{% endblock %}

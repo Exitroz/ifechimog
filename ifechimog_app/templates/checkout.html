@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">Checkout</h2>
+
+  {% if cart_items %}
+    <h5>Order Summary</h5>
+    <ul class="list-group mb-4">
+      {% for item in cart_items %}
+        <li class="list-group-item d-flex justify-content-between">
+          {{ item.product.name }} (x{{ item.quantity }})
+          <span>₦{{ item.item_total }}</span>
+        </li>
+      {% endfor %}
+      <li class="list-group-item d-flex justify-content-between fw-bold">
+        Total:
+        <span>₦{{ total }}</span>
+      </li>
+    </ul>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Place Order</button>
+  </form>
+</div>
+{% endblock %}

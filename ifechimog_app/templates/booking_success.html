@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5 text-center">
+  <h3>Thank you, {{ booking.full_name }}!</h3>
+  <p>Your laundry booking for <strong>{{ booking.service_type }}</strong> has been received.</p>
+  <p>Pickup on {{ booking.pickup_date }} at {{ booking.pickup_time }}</p>
+  <p>We’ll contact you shortly to confirm details.</p>
+  <a href="/" class="btn btn-success mt-3">Go Back Home</a>
+</div>
+{% endblock %}

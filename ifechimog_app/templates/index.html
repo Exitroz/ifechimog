@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+ <!-- Navbar -->
+ {% comment %} <nav class="navbar navbar-expand-lg">
+  <div class="container">
+   <a class="navbar-brand" href="#">
+    Ifechimog
+   </a>
+   <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Templates/index.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="Templates/services.html">
+       Services
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="Templates/about.html">
+       About
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="Templates/contact.html">
+       Contact
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="Templates/laundry.html">
+       Laundry
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="Templates/cart.html">
+       Cart
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="Templates/checkout.html">
+       Checkout
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="Templates/support.html">
+       Support
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+ </nav> {% endcomment %}
+ <!-- Carousel -->
+ <div class="carousel slide" data-bs-ride="carousel" id="heroCarousel">
+  <div class="carousel-inner">
+   <div class="carousel-item active">
+    <img alt="Rice" class="d-block w-100" src="{% static 'Images/rice3.png' %}"/>
+    <div class="carousel-caption text-center">
+     <h1>
+      Welcome to Ifechimog
+     </h1>
+     <p>
+      Your trusted partner for quality rice, reliable laundry, and efficient logistics services.
+     </p>
+     <a class="btn btn-primary mt-3" href="{% url 'services' %}">
+      Explore Services
+     </a>
+    </div>
+   </div>
+   <div class="carousel-item">
+    <img alt="Laundry" class="d-block w-100" src="{% static 'Images/logistics.png' %}"/>
+    <div class="carousel-caption text-center">
+     <h1>
+      Welcome to Ifechimog
+     </h1>
+     <p>
+      Your trusted partner for quality rice, reliable laundry, and efficient logistics services.
+     </p>
+     <a class="btn btn-primary mt-3" href="{% url 'services' %}">
+      Explore Services
+     </a>
+    </div>
+   </div>
+   <div class="carousel-item">
+    <img alt="Logistics" class="d-block w-100" src="{% static 'Images/9.jpg' %}"/>
+    <div class="carousel-caption text-center">
+     <h1>
+      Welcome to Ifechimog
+     </h1>
+     <p>
+      Your trusted partner for quality rice, reliable laundry, and efficient logistics services.
+     </p>
+     <a class="btn btn-primary mt-3" href="{% url 'services' %}">
+      Explore Services
+     </a>
+    </div>
+   </div>
+  </div>
+  <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
+   <span class="carousel-control-prev-icon">
+   </span>
+  </button>
+  <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#heroCarousel" type="button">
+   <span class="carousel-control-next-icon">
+   </span>
+  </button>
+ </div>
+ <!-- Services -->
+ <section class="services-section" id="services">
+  <div class="container">
+   <h2 class="text-center mb-5">
+    Our Services
+   </h2>
+   <div class="row g-4">
+    <div class="col-md-4">
+     <div class="service-card">
+      <img alt="Rice Sales" src="{% static 'Images/mogrice.jpg' %}"/>
+      <h4>
+       Rice Sales
+      </h4>
+      <p>
+       Buy top-quality rice at affordable prices. Order online and get fast delivery.
+      </p>
+      <a class="btn btn-primary btn-sm" href="{% url 'rice' %}">
+       Shop Rice
+      </a>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="service-card">
+      <img alt="Laundry" src="{% static 'Images/laundry.png' %}"/>
+      <h4>
+       Laundry Services
+      </h4>
+      <p>
+       Professional wash, dry clean, and ironing. Book pickups and track your laundry.
+      </p>
+      <a class="btn btn-primary btn-sm" href="{% url 'laundry_booking' %}">
+       Book Laundry
+      </a>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="service-card">
+      <img alt="Logistics" src="{% static 'Images/9.jpg' %}"/>
+      <h4>
+       Logistics
+      </h4>
+      <p>
+       From bike deliveries to truck rentals, we move your packages safely and on time.
+      </p>
+      <a class="btn btn-primary btn-sm" href="{% url 'logistics_request' %}">
+       Get a Quote
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+ <!-- About -->
+ <section class="bg-light py-5" id="about">
+  <div class="container">
+   <h2 class="text-center">
+    About Ifechimog
+   </h2>
+   <p class="text-center">
+    We are a fast-growing business providing high-quality products and services in Nigeria. Whether you need quality rice, trusted cleaning services, or delivery solutions, we've got you covered.
+   </p>
+  </div>
+ </section>
+ <!-- Contact -->
+ <section class="py-5" id="contact">
+  <div class="container">
+   <h2 class="text-center mb-4">
+    Contact Us
+   </h2>
+   <form class="row g-3">
+    <div class="col-md-6">
+     <input class="form-control" placeholder="Your Name" required="" type="text"/>
+    </div>
+    <div class="col-md-6">
+     <input class="form-control" placeholder="Email Address" required="" type="email"/>
+    </div>
+    <div class="col-12">
+     <textarea class="form-control" placeholder="Your Message" required="" rows="4"></textarea>
+    </div>
+    <div class="col-12 text-center">
+     <button class="btn btn-primary" type="submit">
+      Send Message
+     </button>
+    </div>
+   </form>
+  </div>
+ </section>
+ <!-- Footer -->
+
+
+
+{% endblock %}

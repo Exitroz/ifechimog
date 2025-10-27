@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Premium Delivery Services - Ifechimog{% endblock %}
+
+{% load static %}
+{% block content %}
+<section class="page-hero">
+  <img alt="Logistics banner" src="{% static 'Images/services.jpg' %}" />
+  <div class="caption">
+    <h1>Logistics Services</h1>
+    <p>We move it safely and on time.</p>
+    <span class="badge-pill"> Reliable &amp; Fast </span>
+  </div>
+</section>
+<div class="container py-5">
+  <h2>Request Logistics Service</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+  </form>
+</div>
+{% endblock %}

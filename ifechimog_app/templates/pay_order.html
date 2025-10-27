@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5 text-center">
+  <h2>Order Payment</h2>
+  <p><strong>Name:</strong> {{ order.full_name }}</p>
+  <p><strong>Email:</strong> {{ order.email }}</p>
+  <p><strong>Amount:</strong> ₦{{ order.total_amount }}</p>
+
+  <button class="btn btn-success" type="button" id="pay-now">Pay Now</button>
+
+</div>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+document.getElementById('pay-now').addEventListener('click', payWithPaystack);
+
+function payWithPaystack() {
+  let handler = PaystackPop.setup({
+    key: '{{ PAYSTACK_PUBLIC_KEY }}',
+    email: '{{ order.email }}',
+    amount: {{ order.total_amount|floatformat:0 }} * 100,
+    currency: 'NGN',
+    ref: 'IFECHIMOG_' + Math.floor((Math.random() * 1000000000) + 1),
+    callback: function(response) {
+      window.location.href = '/verify-payment/{{ order.id }}/' + response.reference + '/';
+    },
+    onClose: function(){
+      alert('Transaction cancelled.');
+    }
+  });
+  handler.openIframe();
+}
+</script>
+
+{% endblock %}
